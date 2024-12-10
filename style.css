@@ -16,18 +16,24 @@
     box-sizing: border-box;
 }
 .main-container {
-    margin: 0 auto;
+    margin: 77px auto 0 auto;
     background: #ffffff;
     display: flex;
     flex-direction: column;
     gap: 60px;
 }
 .header {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 77px;
     display: flex;
     align-items: center;
     padding: 12px 20px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid #e2e8f0;
+    z-index: 998;
 }
 .search-bar {
     display: none;
@@ -40,6 +46,9 @@
     max-width: 1000px;
     margin-left: 3%;
 }
+.form-search {
+    width: 100%;
+}
 .search-bar-input {
     width: 100%;
     border: none;
@@ -50,11 +59,11 @@
 }
 .search-btn {
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     border: none;
     cursor: pointer;
-    background: white;
+    background: transparent;
 }
 .search-btn-img {
     width: 24px;
@@ -87,15 +96,16 @@
     position: absolute;
     top: 60px;
     right: 20px;
-    background: #ffffff;
     padding: 10px;
     border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 290px;
     gap: 10px;
+    background: transparent;
 }
 .nav-menu.active {
     display: flex;
+    z-index: 1;
+    background: #ffffff;
 }
 .categories-link, .teach-link, .login-btn, .signup-btn {
     font-size: 14px;
@@ -135,7 +145,7 @@
     border: 1px solid #334155;
 }
 .login-btn {
-    background: transparent;
+    background: #ffffff;
 }
 .signup-btn {
     background: #334155;
@@ -201,6 +211,13 @@
     font-weight: 600;
     line-height: 34px;
 }
+.categories {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
 .see-all-button {
     width: auto;
     height: 24px;
@@ -220,7 +237,9 @@
     align-items: center;
     margin: 0 auto 20px auto;
     padding: 24px 93px 24px 93px;
-    width: 286px;
+    max-width: 300px;
+    min-width: 160px;
+    width: 280px;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
     box-shadow: 0 0 8px 0 rgba(59, 130, 246, 0.12);
@@ -273,6 +292,8 @@
     white-space: nowrap;
 }
 .course-card {
+    flex: 1 1 300px;
+    max-width: 380px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -289,15 +310,15 @@
     box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
 }
 .courses-list {
-    display: grid;
-    justify-items: center;
-    align-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px;
     margin: 0 auto;
     padding: 16px;
     max-width: 100%;
 }
+
 .course-image {
     width: 100%;
     height: auto;
@@ -357,12 +378,17 @@
     line-height: 30px;
 }
 .instructor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 300px;
+    max-width: 200px;
     width: 212px;
     padding: 16px;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
     box-shadow: 0 0 8px 0 rgba(59, 130, 246, 0.12);
-    margin: 0 auto 20px;
+    margin: 0 auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .instructor-card:hover {
@@ -370,17 +396,22 @@
     box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
 }
 .instructors-list {
-    display: grid;
-    justify-items: center;
-    align-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 62px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.hidden {
+    display: none;
 }
 .instructor {
     display: flex;
     flex-direction: column;
     gap: 16px;
     align-items: center;
+    width: 100%;
 }
 .instructor-img {
     width: 100%;
@@ -507,8 +538,8 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    gap: 8px;
-    width: 99%;
+    gap: 2px;
+    width: 90%;
     max-width: 432px;
     flex-shrink: 0;
     padding: 24px 24px 24px 24px;
@@ -516,7 +547,12 @@
     border-radius: 16px;
     box-shadow: 0 0 8px 0 rgba(59, 130, 246, 0.12);
     background: #ffffff;
+}
+.comment-card:first-child {
     margin-left: 5%;
+}
+.comment-card:last-child {
+    margin-right: 5%;
 }
 .quotes {
     width: 48px;
@@ -573,18 +609,21 @@
     flex-wrap: wrap;
 }
 .last-banner-img {
-    margin: 30px auto 30px auto;
-    width: 380px;
+    margin: 5% auto 5% auto;
+    width: 90vw;
     height: auto;
     max-height: 400px;
     object-fit: cover;
 }
 .last-banner-info {
+    width: 90vw;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 16px;
-    min-width: 320px;
+}
+.reverse {
+    flex-direction: column-reverse;
 }
 .last-banner-text {
     display: flex;
@@ -599,7 +638,8 @@
     flex-wrap: nowrap;
     flex-shrink: 0;
     gap: 6px;
-    width: 320px;
+    width: 90vw;
+    max-width: 320px;
     height: 48px;
     padding: 10px 24px 10px 24px;
     cursor: pointer;
@@ -622,7 +662,6 @@
     font-size: 20px;
     font-weight: 600;
     line-height: 30px;
-    white-space: nowrap;
 }
 .last-banner-information {
     color: #1d2838;
@@ -746,7 +785,7 @@ a {
         display: block;
         position: relative;
         height: 600px;
-        margin: 0 60px 0 60px;
+        margin: 0 5% 0 5%;
     }
     .banner-block {
         display: flex;
@@ -754,7 +793,6 @@ a {
         gap: 24px;
         position: absolute;
         top: 50%;
-        left: 80px;
         transform: translate(0, -50%);
     }
     .banner-info {
@@ -989,23 +1027,17 @@ a {
     }
     .categories {
         width: 100%;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 48px;
         padding: 5px 0;
+        flex-wrap: nowrap;
     }
     .category-card {
         margin: 0 0 0 0;
+        width: 22.5vw;
     }
     .courses-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 24px;
         margin: 0;
         padding: 0;
-    }
-    .courses-list > :nth-last-child(5):nth-child(odd) {
-        display: none;
     }
     .course-card {
         width: 320px;
@@ -1029,16 +1061,18 @@ a {
     }
     .instructors-list {
         gap: 30px;
+        margin: 0;
+        max-height: 290px;
+        overflow: hidden;
     }
-    .instructors-list :nth-child(n+5):nth-child(-n+6) {
-        display: none;
+    .hidden {
+        display: flex;
     }
     .instructor-card {
         margin: 0 0 0 0;
     }
     .instructor-img {
         width: 150px;
-        height: 112px;
     }
     .instructor-info {
         gap: 16px;
@@ -1067,12 +1101,6 @@ a {
         width: 432px;
         margin-left: 0;
     }
-    .comment-card:first-child {
-        margin-left: 5%;
-    }
-    .comment-card:last-child {
-        margin-right: 5%;
-    }
     .last-banner {
         display: flex;
         align-items: center;
@@ -1080,12 +1108,24 @@ a {
         padding: 0 5% 0 5%;
     }
     .last-banner-info {
+        margin: 0 0 0 0;
         width: 40%;
     }
+    .last-banner-title {
+        white-space: nowrap;
+    }
     .last-banner-img {
-        max-width: calc(100% - 1em);
+        max-height: fit-content;
+        width: 30vw;
         height: auto;
-        margin: 0 0 0 0;
+        margin: 0 48px 0 0;
+        max-width: 480px;
+    }
+    .last-banner-button {
+        width: 320px;
+    }
+    .reverse {
+        flex-direction: row;
     }
     .footer-information {
         display: flex;
@@ -1107,9 +1147,6 @@ a {
 }
 
 @media (max-width: 1250px) {
-    .banner {
-        margin: 0 0 0 0;
-    }
     .banner-title {
         width: 420px;
         font-size: 40px;
@@ -1151,19 +1188,25 @@ a {
     .brand-name {
         font-size: 16px;
     }
-    .last-banner-img1 {
-        width: 380px;
-        height: 400px;
-    }
-    .last-banner-img2 {
-        width: 382px;
-        height: 300px;
+    .last-banner-img {
+        max-width: 360px;
+        height: auto;
     }
     .last-banner-title {
         font-size: 18px;
     }
     .last-banner {
         padding: 0 0 0 0;
+    }
+}
+@media (max-width: 1000px) {
+    .categories {
+        width: 90%;
+        flex-wrap: wrap;
+        margin: 0 5% 0 5%;
+    }
+    .category-card {
+        width: 100%;
     }
 }
 
@@ -1175,5 +1218,15 @@ a {
 @media (max-width: 816px) {
     .group {
         width: auto;
+    }
+}
+@media (max-width: 789px) {
+    .instructors-list {
+        gap: 48px;
+    }
+}
+@media (max-width: 490px) {
+    .comment-card {
+
     }
 }
