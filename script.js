@@ -77,15 +77,17 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
         method: 'POST',
         body: formData
     })
-        .then(response => response.text())
+        .then(response => response.text())  // Ожидаємо текстову відповідь
         .then(data => {
             if (data === 'Email Address Already Exists!') {
                 alert('Ця електронна пошта вже зареєстрована!');
             } else if (data === 'Passwords do not match!') {
                 alert('Паролі не співпадають!');
-            } else {
+            } else if (data === 'Registration successful') {
                 alert('Реєстрація успішна!');
                 window.location.href = 'login.html';  // Перехід на сторінку входу
+            } else {
+                alert('Сталася помилка при відправці форми: ' + data);  // Виводимо помилку з сервера
             }
         })
         .catch(error => {
