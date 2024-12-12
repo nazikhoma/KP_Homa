@@ -67,3 +67,29 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("logInButton").addEventListener("click", goToLogin);
     document.getElementById("signUpButton").addEventListener("click", goToSignup);
 });
+
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('http://localhost/your_project/register.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            if (data === 'Email Address Already Exists!') {
+                alert('Ця електронна пошта вже зареєстрована!');
+            } else if (data === 'Passwords do not match!') {
+                alert('Паролі не співпадають!');
+            } else {
+                alert('Реєстрація успішна!');
+                window.location.href = 'login.html';  // Перехід на сторінку входу
+            }
+        })
+        .catch(error => {
+            console.error('Помилка:', error);
+            alert('Сталася помилка при відправці форми.');
+        });
+});
