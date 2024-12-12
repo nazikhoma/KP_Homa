@@ -73,12 +73,13 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
 
     const formData = new FormData(this);
 
-    fetch('http://localhost/register.php', {
+    fetch('http://localhost/your_project/register.php', {
         method: 'POST',
         body: formData
     })
-        .then(response => response.text())  // Ожидаємо текстову відповідь
+        .then(response => response.text())  // Чекаємо текстову відповідь
         .then(data => {
+            console.log('Сервер надіслав: ', data);  // Логування відповіді сервера
             if (data === 'Email Address Already Exists!') {
                 alert('Ця електронна пошта вже зареєстрована!');
             } else if (data === 'Passwords do not match!') {
@@ -87,7 +88,7 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
                 alert('Реєстрація успішна!');
                 window.location.href = 'login.html';  // Перехід на сторінку входу
             } else {
-                alert('Сталася помилка при відправці форми: ' + data);  // Виводимо помилку з сервера
+                alert('Сталася помилка при відправці форми: ' + data);  // Виведення помилки з сервера
             }
         })
         .catch(error => {
