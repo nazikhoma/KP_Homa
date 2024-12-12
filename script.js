@@ -73,7 +73,7 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
 
     const formData = new FormData(this);
 
-    fetch('http://http://26.70.190.124:8080/register.php', {
+    fetch('http://26.70.190.124:8080/register.php', {
         method: 'POST',
         body: formData
     })
