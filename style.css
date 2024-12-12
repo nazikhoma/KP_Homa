@@ -729,6 +729,86 @@ a {
     width: 296px;
     height: 40px;
 }
+.signup-img {
+    display: none;
+}
+.registration-form {
+    margin: auto 5% auto 5%;
+    display: flex;
+    flex-direction: column;
+}
+.form-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f172a;
+    font-weight: 600;
+    line-height: 42px;
+    margin-bottom: 20px;
+    margin-top: 48px;
+}
+.form-group-title {
+    color: #0f172a;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 29px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    width: 47%;
+}
+.form-input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px 16px 16px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+.half {
+    width: 47%;
+}
+.input-group {
+    display: flex;
+    justify-content: space-between;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.submit-button {
+    width: 183px;
+    margin-bottom: 32px;
+}
+.social-start {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+.social-start-title {
+    flex-shrink: 0;
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 21px;
+}
+.social-options {
+    display: flex;
+    gap: 16px;
+}
+.social-option {
+    width: 33%;
+    border: 1px solid #b2b5c4;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 10px 0 10px 0;
+}
+.social-icon {
+    width: 24px;
+    height: 24px;
+}
 @media (min-width: 817px) {
     .teach-link, .categories-link, .login-btn, .signup-btn {
         font-size: 16px;
@@ -1139,13 +1219,36 @@ a {
     .footer-byway {
         width: 30%;
     }
+    .signup {
+        flex-direction: row;
+        gap: 0;
+    }
+    .line-form {
+        width: 100%;
+    }
+    .signup-img {
+        display: flex;
+        max-width: 45%;
+        width: auto;
+        height: calc(100vh - 77px);
+        flex: 1 1;
+    }
+    .form-title {
+        margin-top: 0;
+    }
+    .registration-form {
+        width: 100%;
+    }
+    .submit-button {
+        width: 183px;
+        margin-bottom: 32px;
+    }
 }
 @media (max-width: 1330px) {
     .group {
         width: 40%;
     }
 }
-
 @media (max-width: 1250px) {
     .banner-title {
         width: 420px;
@@ -1166,21 +1269,17 @@ a {
         font-size: 14px;
     }
 }
-
 @media (max-width: 1075px) {
     .group {
         width: 45%;
     }
-
     .teach-link, .categories-link, .login-btn, .signup-btn {
         font-size: 14px;
     }
-
     .cart-icon {
         width: 25px;
         height: 25px;
     }
-
     .logo {
         width: 30px;
         height: 41px;
@@ -1209,7 +1308,6 @@ a {
         width: 100%;
     }
 }
-
 @media (max-width: 865px) {
     .group {
         width: 55%;
@@ -1223,10 +1321,5 @@ a {
 @media (max-width: 789px) {
     .instructors-list {
         gap: 48px;
-    }
-}
-@media (max-width: 490px) {
-    .comment-card {
-
     }
 }

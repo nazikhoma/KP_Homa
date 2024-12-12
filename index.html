@@ -21,7 +21,7 @@
     <span class="categories-link">Категорії</span>
     <div class="search-bar">
         <img class="magnifying-glass" src="img/search.png" alt="Пошук">
-        <form class="form-search" action="search.html" method="get">
+        <form class="form-search" method="get">
             <input
                     class="search-bar-input"
                     type="text"
@@ -39,11 +39,11 @@
             <span class="categories-link">Категорії</span>
             <span class="teach-link">Викладати на Byway</span>
             <div class="user-actions">
-                <a href="#cart" class="cart-link">
+                <a class="cart-link">
                     <img class="cart-icon" src="img/cart.png" alt="Іконка кошика">
                 </a>
-                <button class="login-btn">Увійти</button>
-                <button class="signup-btn">Зареєструватися</button>
+                <button class="login-btn" id="logInButton">Увійти</button>
+                <button class="signup-btn" id="signUpButton">Зареєструватися</button>
             </div>
         </nav>
     </div>
@@ -505,5 +505,6 @@
         </div>
     </footer>
 </div>
-<script src="script.js"></script></body>
+<script src="script.js"></script>
+</body>
 </html>

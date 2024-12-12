@@ -55,4 +55,15 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('load', manageRowVisibility);
         window.addEventListener('resize', manageRowVisibility);
     }
+
+    function goToLogin() {
+        window.location.href = "login.html";
+    }
+
+    function goToSignup() {
+        window.location.href = "signup.html";
+    }
+
+    document.getElementById("logInButton").addEventListener("click", goToLogin);
+    document.getElementById("signUpButton").addEventListener("click", goToSignup);
 });
