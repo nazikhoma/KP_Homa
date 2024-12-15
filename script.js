@@ -64,13 +64,35 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = "signup.html";
     }
 
-    function goToCategory() {
-        window.location.href = "category.html";
-    }
-
     document.getElementById("logInButton").addEventListener("click", goToLogin);
     document.getElementById("signUpButton").addEventListener("click", goToSignup);
-    document.getElementById("sea-all-categories").addEventListener("click", goToCategory);
-    document.getElementById("sea-all-curses").addEventListener("click", goToCategory);
-    document.getElementById("sea-all-instructors").addEventListener("click", goToCategory);
+});
+
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('http://localhost/register.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())  // Чекаємо текстову відповідь
+        .then(data => {
+            console.log('Сервер надіслав: ', data);  // Логування відповіді сервера
+            if (data === 'Email Address Already Exists!') {
+                alert('Ця електронна пошта вже зареєстрована!');
+            } else if (data === 'Passwords do not match!') {
+                alert('Паролі не співпадають!');
+            } else if (data === 'Registration successful') {
+                alert('Реєстрація успішна!');
+                window.location.href = 'login.html';  // Перехід на сторінку входу
+            } else {
+                alert('Сталася помилка при відправці форми: ' + data);  // Виведення помилки з сервера
+            }
+        })
+        .catch(error => {
+            console.error('Помилка:', error);
+            alert('Сталася помилка при відправці форми.');
+        });
 });
