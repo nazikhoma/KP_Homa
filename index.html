@@ -18,7 +18,7 @@
         </a>
         <span class="brand-name">Byway</span>
     </div>
-    <span class="categories-link">Категорії</span>
+    <a href="category.html" class="categories-link">Категорії</a>
     <div class="search-bar">
         <img class="magnifying-glass" src="img/search.png" alt="Пошук">
         <form class="form-search" method="get">
@@ -36,7 +36,7 @@
         </button>
         <button class="burger-menu" aria-label="Відкрити меню">&#9776;</button>
         <nav class="nav-menu">
-            <span class="categories-link">Категорії</span>
+            <a href="category.html" class="categories-link">Категорії</a>
             <span class="teach-link">Викладати на Byway</span>
             <div class="user-actions">
                 <a class="cart-link">
@@ -124,7 +124,7 @@
     <section class="top-categories">
         <header class="top-categories-header">
             <h2 class="top-categories-title">Популярні категорії</h2>
-            <button class="see-all-button" aria-label="Переглянути всі категорії">Переглянути всі</button>
+            <button class="see-all-button" aria-label="Переглянути всі категорії" id="sea-all-categories">Переглянути всі</button>
         </header>
         <div class="categories">
             <article class="category-card">
@@ -172,7 +172,7 @@
     <section class="top-courses">
         <header class="top-courses-header">
             <h2 class="top-courses-title">Найкращі курси</h2>
-            <button class="see-all-button" aria-label="Переглянути всі курси">Переглянути всі</button>
+            <button class="see-all-button" aria-label="Переглянути всі курси" id="sea-all-curses">Переглянути всі</button>
         </header>
         <div class="courses-list">
             <article class="course-card">
@@ -256,7 +256,7 @@
     <section class="top-instructors">
         <header class="top-instructors-header">
             <h2 class="top-instructors-title">Топ інструктори</h2>
-            <button class="see-all-button" aria-label="Переглянути всіх інструкторів">Переглянути всіх</button>
+            <button class="see-all-button" aria-label="Переглянути всіх інструкторів" id="sea-all-instructors">Переглянути всіх</button>
         </header>
         <div class="instructors-list">
             <article class="instructor-card">
@@ -335,7 +335,7 @@
                     </div>
                 </div>
             </article>
-            <article class="instructor-card hidden">
+            <article class="instructor-card hidden-m">
                 <div class="instructor">
                     <img class="instructor-img" src="img/instructor.png" alt="Фото інструктора">
                     <div class="instructor-info">
@@ -458,7 +458,7 @@
                     <p class="last-banner-information">Учні з усього світу відкривають нові кар’єри, просуваються в
                         своїх галузях та збагачують своє життя.</p>
                 </div>
-                <a href="#" class="last-banner-button" aria-label="Переглянути курси">
+                <a href="category.html" class="last-banner-button" aria-label="Переглянути курси">
                     <span class="last-banner-button-text">Переглянути курси</span>
                     <img class="arrow-right" src="img/arrow-right.png" alt="Стрілка праворуч">
                 </a>
@@ -476,9 +476,9 @@
             <div class="footer-block">
                 <h3 class="footer-title">Отримати допомогу</h3>
                 <ul class="footer-info-list">
-                    <li><a href="#" class="footer-info">Зв'язатися з нами</a></li>
+                    <li><a class="footer-info" id="contactLink" style="cursor: pointer">Зв'язатися з нами</a></li>
                     <li><a href="#" class="footer-info">Останні статті</a></li>
-                    <li><a href="#" class="footer-info">FAQ</a></li>
+                    <li><a class="footer-info">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-block">
@@ -505,6 +505,47 @@
         </div>
     </footer>
 </div>
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">
+            <h2>Зв'язатися з нами</h2>
+            <span class="close" id="closeModal">&times;</span>
+        </div>
+        <form id="contactForm">
+            <label for="name">Ім'я:</label>
+            <input class="modal-input" type="text" id="name" name="name" required><br>
+
+            <label for="email">Електронна адреса:</label>
+            <input class="modal-input" type="email" id="email" name="email" required><br>
+
+            <label for="message">Повідомлення:</label><br>
+            <textarea class="modal-input" id="message" name="message" rows="4" required></textarea><br>
+
+            <button type="submit">Відправити</button>
+        </form>
+    </div>
+</div>
+<div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">
+            <h2>Ви впевнені, що хочете відправити?</h2>
+            <span class="close" id="closeConfirmationModal">&times;</span>
+        </div>
+        <button id="confirmSend">Так</button>
+        <button id="cancelSend">Ні</button>
+    </div>
+</div>
+<div id="closeModalConfirm" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">
+            <h2>Ви впевнені, що хочете закрити це вікно?</h2>
+            <span class="close" id="closeCloseModalConfirm">&times;</span>
+        </div>
+        <button id="confirmClose">Так</button>
+        <button id="cancelClose">Ні</button>
+    </div>
+</div>
+<script src="modal.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

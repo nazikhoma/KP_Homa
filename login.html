@@ -17,7 +17,7 @@
     </a>
     <span class="brand-name">Byway</span>
   </div>
-  <span class="categories-link">Категорії</span>
+  <a href="category.html" class="categories-link">Категорії</a>
   <div class="search-bar">
     <img class="magnifying-glass" src="img/search.png" alt="Пошук">
     <form class="form-search" method="get">
@@ -35,7 +35,7 @@
     </button>
     <button class="burger-menu" aria-label="Відкрити меню">&#9776;</button>
     <nav class="nav-menu">
-      <span class="categories-link">Категорії</span>
+      <a href="category.html" class="categories-link">Категорії</a>
       <span class="teach-link">Викладати на Byway</span>
       <div class="user-actions">
         <a class="cart-link">
@@ -48,7 +48,7 @@
   </div>
 </header>
 <div class="main-container signup">
-  <form class="registration-form" action="login.php" method="post">
+  <form class="registration-form" id="loginForm">
     <h1 class="form-title">Увійдіть до свого акаунта</h1>
     <div class="form-group">
       <h3 class="form-group-title">Логін або електронна пошта</h3>
@@ -84,6 +84,7 @@
   </form>
   <img class="signup-img" src="img/login.jpg" alt="Фонове зображення 1">
 </div>
+<script src="login.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
